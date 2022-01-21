@@ -7,7 +7,5 @@
 
 
 name=input('What is your name?')
-print('Your name is:' + name)
-
-age=input('How old are you?')
-print('You will turn 100 years old in' +2022 +(100-age))
+age=int(input('How old are you?'))
+print(name +' will turn 100 years old in ' +str(2022 +(100-age)))

@@ -2,7 +2,7 @@
 # For example, 13 is a divisor of 26 because 26 / 13 has no remainder.)
 number=int(input('Pojad liczbę'))
 list=[]
-for i in range(1,number):
+for i in range(1,number+1):
     if number%i == 0:
         list.append(i)
 

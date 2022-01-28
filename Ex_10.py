@@ -14,9 +14,30 @@
 
 # Randomly generate two lists to test this
 
-a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
-b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+import json
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument("-f", type=str, nargs='?')
+args = parser.parse_args()
 
-c=[x for x in set(a) if x in (a and b) ]
+data = None
+if args.f:
+    with open(args.f, 'r') as f:
+        data = json.load(f)
+if data == None:
+    a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+    b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    c=[x for x in set(a) if x in (a and b) ]
 
-print(c)
+    print(c)
+else:
+    a= data['Ex_10a']
+    b=data['Ex_10b']
+    c=[x for x in set(a) if x in (a and b) ]
+
+    print(c)
+
+
+
+
+

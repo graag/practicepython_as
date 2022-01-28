@@ -2,6 +2,12 @@
 # Make sure to ask the user to enter the number of numbers in the sequence to generate.(Hint: The Fibonnaci seqence is a sequence of numbers where the next number in the sequence is the sum of the previous two numbers in the sequence. 
 # The sequence looks like this: 1, 1, 2, 3, 5, 8, 13, …)
 
+import json
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument("-f", type=str, nargs='?')
+args = parser.parse_args()
+
 
 
 
@@ -13,6 +19,13 @@ def fib(n):
         a, b = b, a+b
         i=+1
     print()
-
-n=int(input("how many Fibonnaci numbers to generate?"))
-print(fib(n))
+data = None
+if args.f:
+    with open(args.f, 'r') as f:
+        data = json.load(f)
+if data == None:
+    n=int(input("how many Fibonnaci numbers to generate?"))
+    print(fib(n))
+else:
+    n= data['Ex_13']    
+    print(fib(n))

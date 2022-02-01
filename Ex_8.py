@@ -45,11 +45,10 @@ if args.f:
 if data == None:
     a=str(input("Rock,Scissors,Paper?")) 
     b=str(input("Rock,Scissors,Paper?"))
-    rsp_game(a,b)
 else:
     a= data['Ex_8a']
     b=data['Ex_8b']
-    rsp_game(a,b)
+rsp_game(a,b)
 
         
             

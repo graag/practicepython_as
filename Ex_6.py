@@ -22,8 +22,7 @@ if args.f:
     with open(args.f, 'r') as f:
         data = json.load(f)
 if data == None:
-    a=str(input('Wpisz słowo a ja sprawdzę czy jest palindromem'))
-    palindrom(a)
+    a=str(input('Wpisz słowo a ja sprawdzę czy jest palindromem'))   
 else:
     a= data['Ex_6']
-    palindrom(a)
+palindrom(a)

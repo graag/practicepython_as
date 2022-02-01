@@ -7,19 +7,36 @@
 # Keep track of how many guesses the user has taken, and when the game ends, print this out.
 
 from random import randrange
-try:
-    c='e'
-    while c!='exit':
-        a=randrange(1,10)
-        b=int(input('Guess the number'))
-        print(a)
-        if a==b:
-            print('You guess!')
-        elif a<b:
-            print('Too high')
-        elif a>b:
-            print('Too low')
-        c=input('Do you want exit the game? Write exit')
+import json
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument("-f", type=str, nargs='?')
+args = parser.parse_args()
 
-except: 
-    print('Something went wrong')
+def guess_number(b):
+    try:
+        c='e'
+        while c!='exit':
+            a=randrange(1,10)
+            
+            print(a)
+            if a==b:
+                print('You guess!')
+            elif a<b:
+                print('Too high')
+            elif a>b:
+                print('Too low')
+            c=input('Do you want exit the game? Write exit')
+
+    except: 
+        print('Something went wrong')
+
+data = None
+if args.f:
+    with open(args.f, 'r') as f:
+        data = json.load(f)
+if data == None:
+    b=int(input('Guess the number'))
+else:
+    b= data['Ex_9']
+guess_number(b)

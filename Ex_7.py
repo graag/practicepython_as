@@ -12,8 +12,7 @@ if args.f:
 if data == None:
     a = [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
     c=[x for x in a if x %2== 0]
-    print(c)
 else:
     a= data['Ex_7']
     c=[x for x in a if x %2== 0]
-    print(c)
+print(c)

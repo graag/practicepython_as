@@ -25,7 +25,6 @@ if args.f:
         data = json.load(f)
 if data == None:
     a=[1,1,2,4,4]
-    print(new_list(a))
 else:
     a=data['Ex_14']
-    print(new_list(a))
+print(new_list(a))

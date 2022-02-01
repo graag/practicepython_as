@@ -25,7 +25,6 @@ if args.f:
         data = json.load(f)
 if data == None:
     n=int(input("how many Fibonnaci numbers to generate?"))
-    print(fib(n))
 else:
     n= data['Ex_13']    
-    print(fib(n))
+print(fib(n))

@@ -25,7 +25,7 @@ if args.f:
         data = json.load(f)
 if data == None:
     a=str(input('Wpisz wiele słów'))
-    print(words_backwords(a))
 else:
     a=data["Ex_15"]
-    print(words_backwords(a))
+
+print(words_backwords(a))

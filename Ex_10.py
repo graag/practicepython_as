@@ -29,13 +29,13 @@ if data == None:
     b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
     c=[x for x in set(a) if x in (a and b) ]
 
-    print(c)
+    
 else:
     a= data['Ex_10a']
     b=data['Ex_10b']
     c=[x for x in set(a) if x in (a and b) ]
 
-    print(c)
+print(c)
 
 
 

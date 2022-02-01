@@ -23,10 +23,10 @@ if args.f:
         data = json.load(f)
 if data == None:
     a=get_integer()
-    prime_number(a)
+    
 else:
      a= data['Ex_11']
-     prime_number(a)
+prime_number(a)
 
 
 

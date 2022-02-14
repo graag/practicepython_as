@@ -7,8 +7,16 @@ parser = argparse.ArgumentParser()
 parser.add_argument("-f", type=str, nargs='?')
 args = parser.parse_args()
 def get_integer():
-    return int(input("Give me a number: "))
-
+    while True:
+        try:
+            a= int(input("Give me a number: "))
+            a=int(a)
+            break
+            
+        except ValueError:
+            print('Valid number, please') 
+            continue
+    return a
 def prime_number(a):
     for x in range(2, a):
         if a % x == 0:
@@ -21,7 +29,7 @@ data = None
 if args.f:
     with open(args.f, 'r') as f:
         data = json.load(f)
-if data == None:
+if data is None:
     a=get_integer()
     
 else:

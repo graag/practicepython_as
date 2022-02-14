@@ -7,14 +7,17 @@ parser.add_argument("-f", type=str, nargs='?')
 args = parser.parse_args()
 
 data = None
-if args.f:
-    with open(args.f, 'r') as f:
-        data = json.load(f)
+try:
+    if args.f:
+        with open(args.f, 'r') as f:
+            data = json.load(f)
 
     # for i in data.items():
     #     print(i)
-
-if data==None:
+except OSError as e:
+    print(e)
+    
+if data is None:
     number=int(input('Podaj liczbę'))
     if number==0:
         print('to jest liczba 0')

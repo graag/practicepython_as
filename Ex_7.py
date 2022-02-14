@@ -6,13 +6,15 @@ parser.add_argument("-f", type=str, nargs='?')
 args = parser.parse_args()
 
 data = None
-if args.f:
-    with open(args.f, 'r') as f:
-        data = json.load(f)
-if data == None:
-    a = [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+try:
+    if args.f:
+        with open(args.f, 'r') as f:
+            data = json.load(f)
+    if data is None:
+        a = [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]    
+    else:
+        a= data['Ex_7']
     c=[x for x in a if x %2== 0]
-else:
-    a= data['Ex_7']
-    c=[x for x in a if x %2== 0]
-print(c)
+    print(c)
+except OSError as e:
+    print(e)

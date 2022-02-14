@@ -12,21 +12,23 @@ parser.add_argument("-v", "--verbosity", action="count", default=0)
 args = parser.parse_args()
 
 data = None
-if args.f:
-    with open(args.f, 'r') as f:
-        data = json.load(f)
-# print(data)
-    for i in data.items():
-        print(i)
-  
-# Closing file
+try:
+    if args.f:
+        with open(args.f, 'r') as f:
+            data = json.load(f)
+    # print(data)
+        for i in data.items():
+            print(i)
+    
+    # Closing file
+except OSError as e:
+    print(e)
 
 
-
-if data==None:
+if data is None:                                                                                  
     name=input('What is your name?')
     age=int(input('How old are you?'))
 else:
     name = data['name']
     age = data['age']
-print(name +' will turn 100 years old in ' +str(2022 +(100-age)))
+print(name +' will turn 100 years old in ' +str(2022 +(100-age)))                                                                                                                               

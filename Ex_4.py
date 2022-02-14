@@ -10,21 +10,24 @@ args = parser.parse_args()
 
 
 def divides(a):
-    list1=[]
-    for i in range(1,a+1):
+    list1=[a]
+    for i in range(1,a//2+1):
         if a%i == 0:
             list1.append(i)
-
     print('dzielnikiem podanej liczby: '+ str(list1))
 
 
 data = None
-if args.f:
-    with open(args.f, 'r') as f:
-        data = json.load(f)
-if data == None:
-    a=int(input('Pojad liczbę'))
-    divides(a)
-    
-else:
-    divides(data['Ex_4'])
+try:
+
+    if args.f:
+        with open(args.f, 'r') as f:
+            data = json.load(f)
+    if data is None:
+        a=int(input('Pojad liczbę'))
+        divides(a)
+        
+    else:
+        divides(data['Ex_4'])
+except OSError as e:
+    print(e)

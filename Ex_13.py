@@ -17,13 +17,13 @@ def fib(n):
         print(a)
         
         a, b = b, a+b
-        i=+1
+        
     print()
 data = None
 if args.f:
     with open(args.f, 'r') as f:
         data = json.load(f)
-if data == None:
+if data is None:
     n=int(input("how many Fibonnaci numbers to generate?"))
 else:
     n= data['Ex_13']    

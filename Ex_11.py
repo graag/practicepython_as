@@ -18,7 +18,7 @@ def get_integer():
             continue
     return a
 def prime_number(a):
-    for x in range(2, a):
+    for x in range(2, a//2):
         if a % x == 0:
             print(a, "it's not a prime number")
             break

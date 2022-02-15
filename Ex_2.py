@@ -2,6 +2,7 @@
 
 import json
 import argparse
+import traceback
 parser = argparse.ArgumentParser()
 parser.add_argument("-f", type=str, nargs='?')
 args = parser.parse_args()
@@ -15,21 +16,29 @@ try:
     # for i in data.items():
     #     print(i)
 except OSError as e:
-    print(e)
-    
-if data is None:
-    number=int(input('Podaj liczbę'))
-    if number==0:
-        print('to jest liczba 0')
-    elif number%2 != 0:
-        print('to jest liczba nieparzysta')
-    else:
-        print('to jest liczba parzysta')
-else:
-    number=data['Ex_2']
-    if number==0:
-        print('to jest liczba 0')
-    elif number%2 != 0:
-        print('to jest liczba nieparzysta')
-    else:
-        print('to jest liczba parzysta')
+    traceback.print_exc()
+while True:
+    try:  
+        if data is None:
+            number=int(input('Podaj liczbę'))
+
+            if number==0:
+                print('to jest liczba 0')
+            elif number%2 != 0:
+                print('to jest liczba nieparzysta')
+                break
+            else:
+                print('to jest liczba parzysta')
+                break
+        else:
+            number=data['Ex_2']
+            if number==0:
+                print('to jest liczba 0')
+            elif number%2 != 0:
+                print('to jest liczba nieparzysta')
+                break
+            else:
+                print('to jest liczba parzysta')
+                break
+    except ValueError:
+        print("Oops!  That was no valid number.  Try again...")

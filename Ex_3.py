@@ -7,6 +7,7 @@
 
 import json
 import argparse
+import traceback
 parser = argparse.ArgumentParser()
 parser.add_argument("-f", type=str, nargs='?')
 args = parser.parse_args()
@@ -21,11 +22,12 @@ try:
     if args.f:
         with open(args.f, 'r') as f:
             data = json.load(f)
-    if data is None:
-        a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
-        less5(a)
-    
-    else:
-        less5(data['Ex_3'])
 except OSError as e:
-    print(e)        
+    traceback.print_exc()
+if data is None:
+    a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+    less5(a)
+
+else:
+    less5(data['Ex_3'])
+    

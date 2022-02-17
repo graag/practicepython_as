@@ -4,6 +4,7 @@
 
 import json
 import argparse
+import traceback
 parser = argparse.ArgumentParser()
 parser.add_argument("-f", type=str, nargs='?')
 args = parser.parse_args()
@@ -20,15 +21,21 @@ def fib(n):
         
     print()
 data = None
-if args.f:
-    with open(args.f, 'r') as f:
-        data = json.load(f)
+try:
+    if args.f:
+        with open(args.f, 'r') as f:
+            data = json.load(f)
+except OSError as e:
+    traceback.print_exc()
 if data is None:
-    n=int(input("how many Fibonnaci numbers to generate?"))
-    if n>=1:
-        print(fib(n))
-    else:
-        print('Error')
+    try:
+        n=int(input("how many Fibonnaci numbers to generate?"))
+        if n>=1:
+            print(fib(n))
+        else:
+            print('Error')
+    except:
+        print("Only invalid numbers")
 else:
     n= data['Ex_13']    
     print(fib(n))

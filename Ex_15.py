@@ -7,6 +7,7 @@
 # shown back to me.
 import json
 import argparse
+import traceback
 parser = argparse.ArgumentParser()
 parser.add_argument("-f", type=str, nargs='?')
 args = parser.parse_args()
@@ -20,10 +21,13 @@ def words_backwords(a):
 
 
 data = None
-if args.f:
-    with open(args.f, 'r') as f:
-        data = json.load(f)
-if data == None:
+try:
+    if args.f:
+        with open(args.f, 'r') as f:
+            data = json.load(f)
+except OSError as e:
+    traceback.print_exc()
+if data is None:
     a=str(input('Wpisz wiele słów'))
 else:
     a=data["Ex_15"]

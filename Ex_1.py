@@ -16,6 +16,7 @@ try:
     if args.f:
         with open(args.f, 'r') as f:
             data = json.load(f)
+
     # print(data)
         for i in data.items():
             print(i)

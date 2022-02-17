@@ -45,7 +45,7 @@ def rsp_number_game(a,b):
         
         a=str(input("Rock,Scissors,Paper?")) 
         b=str(input("Rock,Scissors,Paper?"))
-        if a=='Rock' or a=='Scissors' or a=='Paper' and b=='Rock' or b=='Scissors' or b=='Paper':
+        if (a=='Rock' or a=='Scissors' or a=='Paper') and (b=='Rock' or b=='Scissors' or b=='Paper'):
 
                 c=dict()
                 c['Rock']={'Paper':-1,'Rock':0,'Scissors':1}    

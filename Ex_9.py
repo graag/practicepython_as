@@ -16,12 +16,6 @@ args = parser.parse_args()
 a=random.randint(1,9)
 count=0
 
-    
-
-                       
-            
-
-   
 
 data = None
 try:

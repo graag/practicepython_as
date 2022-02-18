@@ -4,7 +4,7 @@
 from bs4 import BeautifulSoup
 import requests
 
-# response = urllib.request.urlopen('https://www.nytimes.com/')
+
 r=requests.get("https://www.nytimes.com/")
 r_html=r.text
 soup = BeautifulSoup(r_html, 'lxml')
